@@ -1,0 +1,9 @@
+*.log
+*.tmp
+*.zip
+capturecrew-*.png
+hemu-instagram.png
+kolli-instagram.png
+node_modules/
+.DS_Store
+Thumbs.db
