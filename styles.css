@@ -37,7 +37,7 @@
   --logo-scale: 1;
   --stage-shift: 0px;
   --hero-logo-width: clamp(620px, 66vw, 960px);
-  --glitch-cycle: 7.4s;
+  --glitch-cycle: 6.2s;
   color-scheme: dark;
 }
 
@@ -349,7 +349,7 @@ button {
 
 .hero-media {
   z-index: 0;
-  background-image: url("./assets/hero/black-red-cinematic.jpg?v=glitch-pulse");
+  background-image: url("./assets/hero/black-red-cinematic.jpg?v=glitch-max");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -360,7 +360,7 @@ button {
 
 @media (min-width: 1280px) {
   .hero-media {
-    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=glitch-pulse");
+    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=glitch-max");
   }
 }
 
@@ -427,7 +427,7 @@ button {
   left: 50%;
   top: 31%;
   width: 58vw;
-  height: 2px;
+  height: 4px;
   border-radius: 999px;
   background: linear-gradient(90deg, transparent, rgba(255, 42, 42, 0.86), rgba(255, 245, 242, 0.28), transparent);
   opacity: 0.28;
@@ -571,8 +571,8 @@ button {
     linear-gradient(90deg, transparent, rgba(255, 23, 23, 0.82), rgba(0, 220, 255, 0.62), rgba(255, 245, 242, 0.7), transparent);
   background-size: 220% 100%;
   box-shadow:
-    0 0 20px rgba(242, 15, 15, 0.38),
-    0 0 14px rgba(0, 220, 255, 0.18);
+    0 0 34px rgba(242, 15, 15, 0.58),
+    0 0 22px rgba(0, 220, 255, 0.3);
   opacity: 0;
   pointer-events: none;
   transform: translate3d(-50%, 0, 0) rotate(-8deg);
@@ -626,6 +626,49 @@ button {
   will-change: transform;
   transform-origin: 50% 48%;
   animation: logoFloat 8.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.hero-logo-stack::before,
+.hero-logo-stack::after {
+  content: "";
+  position: absolute;
+  inset: -5% -3%;
+  z-index: 9;
+  pointer-events: none;
+  mask-image: url("./assets/logo/capture-crew-wordmark.png");
+  mask-repeat: no-repeat;
+  mask-size: 94% auto;
+  mask-position: center;
+  -webkit-mask-image: url("./assets/logo/capture-crew-wordmark.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 94% auto;
+  -webkit-mask-position: center;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.hero-logo-stack::before {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.92) 0 3px,
+      rgba(255, 20, 20, 0.82) 3px 8px,
+      transparent 8px 15px
+    );
+  transform: translate3d(16px, -2px, 120px);
+  animation: logoStaticTear var(--glitch-cycle) steps(1, end) infinite;
+}
+
+.hero-logo-stack::after {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 220, 255, 0.74) 0 4px,
+      transparent 4px 10px,
+      rgba(255, 255, 255, 0.62) 10px 13px
+    );
+  transform: translate3d(-16px, 2px, 122px);
+  animation: logoStaticTear var(--glitch-cycle) steps(1, end) infinite reverse;
 }
 
 .hero-logo-stack img,
@@ -709,7 +752,10 @@ button {
   -webkit-mask-size: contain;
   -webkit-mask-position: center;
   opacity: 0;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 0 18px rgba(242, 15, 15, 0.38))
+    saturate(1.45);
   will-change: opacity, transform, clip-path;
 }
 
@@ -945,92 +991,112 @@ button {
 
 @keyframes gridPulse {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0.24;
     filter: none;
   }
 
-  42% {
-    opacity: 0.36;
-    filter: hue-rotate(18deg) saturate(1.35);
+  33%,
+  68% {
+    opacity: 0.48;
+    filter: hue-rotate(24deg) saturate(1.62);
   }
 
-  44% {
-    opacity: 0.18;
-    filter: hue-rotate(-18deg) saturate(1.08);
+  36%,
+  70% {
+    opacity: 0.14;
+    filter: hue-rotate(-24deg) saturate(1.18);
   }
 
-  46% {
-    opacity: 0.32;
-    filter: hue-rotate(10deg) saturate(1.24);
+  39%,
+  72% {
+    opacity: 0.42;
+    filter: hue-rotate(12deg) saturate(1.45);
   }
 }
 
 @keyframes bandGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     background-position: 0% 0;
   }
 
-  42% {
-    opacity: 0.82;
+  33%,
+  68% {
+    opacity: 1;
     background-position: 62% 0;
   }
 
-  44% {
-    opacity: 0.28;
+  36%,
+  70% {
+    opacity: 0.48;
     background-position: 88% 0;
   }
 
-  46% {
-    opacity: 0.62;
+  39%,
+  72% {
+    opacity: 0.9;
     background-position: 100% 0;
   }
 }
 
 @keyframes edgeGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0.76;
     box-shadow: none;
   }
 
-  42%,
-  46% {
+  33%,
+  39%,
+  68%,
+  72% {
     opacity: 1;
     box-shadow:
-      8px 0 0 rgba(0, 220, 255, 0.42),
-      -8px 0 0 rgba(255, 24, 24, 0.58),
-      0 0 16px rgba(242, 15, 15, 0.54);
+      14px 0 0 rgba(0, 220, 255, 0.54),
+      -14px 0 0 rgba(255, 24, 24, 0.72),
+      0 0 22px rgba(242, 15, 15, 0.68);
   }
 
-  44% {
-    opacity: 0.42;
+  36%,
+  70% {
+    opacity: 0.3;
   }
 }
 
 @keyframes lineGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
   }
 
-  42%,
-  46% {
-    opacity: 0.86;
+  33%,
+  39%,
+  68%,
+  72% {
+    opacity: 1;
   }
 
-  44% {
-    opacity: 0.2;
+  36%,
+  70% {
+    opacity: 0.28;
   }
 }
 
@@ -1170,159 +1236,245 @@ button {
 
 @keyframes logoFaceGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     transform: translate3d(0, 0, 48px);
   }
 
-  42% {
-    transform: translate3d(-2px, 1px, 50px) skewX(-0.45deg);
+  33%,
+  68% {
+    transform: translate3d(-5px, 2px, 52px) skewX(-1.2deg);
   }
 
-  44% {
-    transform: translate3d(2px, -1px, 52px) skewX(0.55deg);
+  36%,
+  70% {
+    transform: translate3d(5px, -2px, 54px) skewX(1.3deg);
   }
 
-  46% {
-    transform: translate3d(-1px, 0, 50px) skewX(-0.25deg);
+  39%,
+  72% {
+    transform: translate3d(-3px, 1px, 52px) skewX(-0.7deg);
+  }
+}
+
+@keyframes logoStaticTear {
+  0%,
+  30%,
+  48%,
+  64%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+
+  32%,
+  68% {
+    opacity: 0.7;
+  }
+
+  36%,
+  72% {
+    opacity: 0.28;
+  }
+
+  41%,
+  76% {
+    opacity: 0.58;
   }
 }
 
 @keyframes logoGlitchRed {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     clip-path: inset(0 0 0 0);
     transform: translate3d(0, 0, 78px);
   }
 
-  42% {
+  33% {
+    opacity: 0.78;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(24px, -4px, 100px);
+  }
+
+  36% {
+    opacity: 0.62;
+    clip-path: inset(54% 0 17% 0);
+    transform: translate3d(-14px, 3px, 98px);
+  }
+
+  39% {
+    opacity: 0.82;
+    clip-path: inset(27% 0 42% 0);
+    transform: translate3d(16px, 1px, 100px);
+  }
+
+  68% {
     opacity: 0.72;
-    clip-path: inset(7% 0 66% 0);
-    transform: translate3d(12px, -2px, 96px);
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(20px, -3px, 98px);
   }
 
-  44% {
-    opacity: 0.38;
-    clip-path: inset(56% 0 19% 0);
-    transform: translate3d(-7px, 2px, 94px);
+  70% {
+    opacity: 0.42;
+    clip-path: inset(18% 0 58% 0);
+    transform: translate3d(-12px, 2px, 96px);
   }
 
-  46% {
-    opacity: 0.54;
-    clip-path: inset(31% 0 44% 0);
-    transform: translate3d(8px, 0, 96px);
+  72% {
+    opacity: 0.68;
+    clip-path: inset(42% 0 28% 0);
+    transform: translate3d(14px, 0, 100px);
   }
 }
 
 @keyframes logoGlitchCyan {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     clip-path: inset(0 0 0 0);
     transform: translate3d(0, 0, 82px);
   }
 
-  42% {
-    opacity: 0.58;
-    clip-path: inset(12% 0 60% 0);
-    transform: translate3d(-11px, 2px, 98px);
+  33% {
+    opacity: 0.72;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(-24px, 4px, 102px);
   }
 
-  44% {
-    opacity: 0.34;
-    clip-path: inset(48% 0 28% 0);
-    transform: translate3d(8px, -2px, 96px);
+  36% {
+    opacity: 0.56;
+    clip-path: inset(47% 0 25% 0);
+    transform: translate3d(16px, -4px, 100px);
   }
 
-  46% {
-    opacity: 0.48;
-    clip-path: inset(66% 0 8% 0);
-    transform: translate3d(-6px, 1px, 98px);
+  39% {
+    opacity: 0.72;
+    clip-path: inset(64% 0 6% 0);
+    transform: translate3d(-14px, 2px, 102px);
+  }
+
+  68% {
+    opacity: 0.68;
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(-20px, 3px, 102px);
+  }
+
+  70% {
+    opacity: 0.44;
+    clip-path: inset(6% 0 70% 0);
+    transform: translate3d(12px, -3px, 100px);
+  }
+
+  72% {
+    opacity: 0.64;
+    clip-path: inset(56% 0 18% 0);
+    transform: translate3d(-15px, 1px, 102px);
   }
 }
 
 @keyframes logoGlitchWhite {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     clip-path: inset(0 0 0 0);
     transform: translate3d(0, 0, 104px);
   }
 
-  42% {
-    opacity: 0.34;
-    clip-path: inset(22% 0 58% 0);
-    transform: translate3d(0, -1px, 112px);
+  33%,
+  68% {
+    opacity: 0.56;
+    clip-path: inset(20% 0 55% 0);
+    transform: translate3d(4px, -2px, 114px);
   }
 
-  44% {
-    opacity: 0.18;
-    clip-path: inset(40% 0 42% 0);
-    transform: translate3d(3px, 1px, 112px);
+  36%,
+  70% {
+    opacity: 0.3;
+    clip-path: inset(38% 0 40% 0);
+    transform: translate3d(-4px, 2px, 114px);
   }
 
-  46% {
-    opacity: 0.26;
-    clip-path: inset(72% 0 6% 0);
-    transform: translate3d(-2px, 0, 112px);
+  39%,
+  72% {
+    opacity: 0.46;
+    clip-path: inset(70% 0 4% 0);
+    transform: translate3d(3px, 0, 114px);
   }
 }
 
 @keyframes statGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     transform: translate3d(-24%, 0, 0);
   }
 
-  42% {
+  33%,
+  68% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 
-  44% {
-    opacity: 0.22;
+  36%,
+  70% {
+    opacity: 0.32;
     transform: translate3d(12%, 0, 0);
   }
 
-  46% {
-    opacity: 0.72;
-    transform: translate3d(24%, 0, 0);
+  39%,
+  72% {
+    opacity: 0.86;
+    transform: translate3d(28%, 0, 0);
   }
 }
 
 @keyframes stripGlitch {
   0%,
-  40%,
-  49%,
+  31%,
+  43%,
+  63%,
+  74%,
   100% {
     opacity: 0;
     transform: translate3d(-34%, 0, 0);
   }
 
-  42% {
+  33%,
+  68% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 
-  44% {
-    opacity: 0.18;
+  36%,
+  70% {
+    opacity: 0.28;
     transform: translate3d(16%, 0, 0);
   }
 
-  46% {
-    opacity: 0.62;
-    transform: translate3d(34%, 0, 0);
+  39%,
+  72% {
+    opacity: 0.8;
+    transform: translate3d(38%, 0, 0);
   }
 }
 
@@ -1358,7 +1510,7 @@ button {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-    url("./assets/hero/black-red-cinematic.jpg?v=glitch-pulse") center / cover;
+    url("./assets/hero/black-red-cinematic.jpg?v=glitch-max") center / cover;
   filter: saturate(1.08) contrast(1.08);
   opacity: 0.16;
   pointer-events: none;
@@ -1368,7 +1520,7 @@ button {
   .section::before {
     background:
       linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-      url("./assets/hero/black-red-cinematic-4k.jpg?v=glitch-pulse") center / cover;
+      url("./assets/hero/black-red-cinematic-4k.jpg?v=glitch-max") center / cover;
   }
 }
 
@@ -2540,6 +2692,8 @@ textarea::placeholder {
 
   .logo-glitch,
   .glitch-band,
+  .hero-logo-stack::before,
+  .hero-logo-stack::after,
   .film-line::before,
   .hero-stats div::before,
   .hero-strip span::before {
