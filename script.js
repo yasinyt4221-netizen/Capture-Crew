@@ -30,13 +30,13 @@ function initHeroMotion() {
   const root = document.documentElement;
   const state = {
     rotateX: 0,
-    rotateY: -1,
+    rotateY: 0,
     panX: 0,
     scrollY: 0,
     scale: 1,
     stageShift: 0,
     targetRotateX: 0,
-    targetRotateY: -1,
+    targetRotateY: 0,
     targetPanX: 0,
     targetScrollY: 0,
     targetScale: 1,
@@ -49,9 +49,9 @@ function initHeroMotion() {
   function updatePointer(clientX, clientY) {
     const x = clamp((clientX / window.innerWidth - 0.5) * 2, -1, 1);
     const y = clamp((clientY / window.innerHeight - 0.5) * 2, -1, 1);
-    state.targetRotateY = x * 5.2 - 1;
-    state.targetRotateX = y * -3.4;
-    state.targetPanX = x * 10;
+    state.targetRotateY = x * 2.8;
+    state.targetRotateX = y * -2.4;
+    state.targetPanX = x * 2;
   }
 
   function updateScrollMotion() {
@@ -91,7 +91,7 @@ function initHeroMotion() {
 
   window.addEventListener("pointerleave", () => {
     state.targetRotateX = 0;
-    state.targetRotateY = -1;
+    state.targetRotateY = 0;
     state.targetPanX = 0;
   });
 
