@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800;1,900&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=instagram-dm" />
+    <link rel="stylesheet" href="./styles.css?v=crew-founder-cards" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -56,7 +56,13 @@
           <a href="#instagram">Instagram</a>
         </div>
 
-        <a class="header-cta" href="https://ig.me/m/capture_crew_hh" target="_blank" rel="noreferrer">
+        <a
+          class="header-cta"
+          href="https://ig.me/m/capture_crew_hh"
+          target="_blank"
+          rel="noreferrer"
+          data-instagram-dm
+        >
           <i data-lucide="instagram"></i>
           <span>DM us</span>
         </a>
@@ -135,6 +141,7 @@
               href="https://ig.me/m/capture_crew_hh"
               target="_blank"
               rel="noreferrer"
+              data-instagram-dm
             >
               <i data-lucide="send"></i>
               <span>DM on Instagram</span>
@@ -341,25 +348,22 @@
       </section>
 
       <section class="section crew-section" id="crew" aria-labelledby="crew-title">
-        <span class="crew-wall-light crew-wall-light-one" aria-hidden="true"></span>
-        <span class="crew-wall-light crew-wall-light-two" aria-hidden="true"></span>
         <div class="section-heading">
-          <p class="eyebrow">Our crew</p>
-          <h2 id="crew-title">The team wall behind every frame.</h2>
+          <p class="eyebrow">Crew members</p>
+          <h2 id="crew-title">The crew behind every shoot.</h2>
           <p>
-            A growing wall of Capture Crew members, framed small and sharp so
-            every new artist gets a clean spotlight on the wall.
+            More faces from Capture Crew, shown with the same cinematic portrait
+            treatment as the founders.
           </p>
         </div>
 
-        <div class="crew-wall" aria-label="Capture Crew team members">
+        <div class="founder-reel crew-reel" aria-label="Capture Crew members">
           <a
-            class="crew-frame crew-frame-photo"
+            class="founder-card founder-card-large crew-member-card crew-member-deva"
             href="https://www.instagram.com/deva_max9/"
             target="_blank"
             rel="noreferrer"
           >
-            <span class="crew-frame-pin" aria-hidden="true"></span>
             <img
               src="./assets/crew/deva-max9.jpg"
               width="560"
@@ -367,19 +371,20 @@
               alt="Portrait of Deva Max from Capture Crew"
               loading="lazy"
             />
-            <span class="crew-frame-copy">
-              <strong>Deva Max</strong>
-              <small>@deva_max9</small>
-            </span>
+            <span class="founder-number">01</span>
+            <div class="founder-copy">
+              <p>Crew Member</p>
+              <h3>Deva Max</h3>
+              <span>@deva_max9</span>
+            </div>
           </a>
 
           <a
-            class="crew-frame crew-frame-photo crew-frame-sonu"
+            class="founder-card crew-member-card crew-member-sonu"
             href="https://www.instagram.com/__smiley_sonu__/"
             target="_blank"
             rel="noreferrer"
           >
-            <span class="crew-frame-pin" aria-hidden="true"></span>
             <img
               src="./assets/crew/smiley-sonu.jpg"
               width="540"
@@ -387,29 +392,34 @@
               alt="Portrait of Smiley Sonu from Capture Crew"
               loading="lazy"
             />
-            <span class="crew-frame-copy">
-              <strong>Smiley Sonu</strong>
-              <small>@__smiley_sonu__</small>
-            </span>
+            <span class="founder-number">02</span>
+            <div class="founder-copy">
+              <p>Crew Member</p>
+              <h3>Smiley Sonu</h3>
+              <span>@__smiley_sonu__</span>
+            </div>
           </a>
 
-          <article class="crew-frame crew-frame-empty" aria-label="More Capture Crew portraits coming soon">
-            <span class="crew-frame-pin" aria-hidden="true"></span>
-            <span class="crew-placeholder-mark" aria-hidden="true"></span>
-            <span class="crew-frame-copy">
-              <strong>Production</strong>
-              <small>Behind the shoot</small>
-            </span>
-          </article>
-
-          <article class="crew-frame crew-frame-empty" aria-label="More Capture Crew portraits coming soon">
-            <span class="crew-frame-pin" aria-hidden="true"></span>
-            <span class="crew-placeholder-mark" aria-hidden="true"></span>
-            <span class="crew-frame-copy">
-              <strong>Editing</strong>
-              <small>Color and reels</small>
-            </span>
-          </article>
+          <a
+            class="founder-card crew-member-card crew-member-yashu"
+            href="https://www.instagram.com/yashusingh_28/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="./assets/crew/yashu-singh.jpg"
+              width="560"
+              height="836"
+              alt="Portrait of Yashu Singh from Capture Crew"
+              loading="lazy"
+            />
+            <span class="founder-number">03</span>
+            <div class="founder-copy">
+              <p>Crew Member</p>
+              <h3>Yashu Singh</h3>
+              <span>@yashusingh_28</span>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -445,71 +455,34 @@
       <section class="section instagram-section" id="instagram" aria-labelledby="instagram-title">
         <div class="instagram-copy">
           <p class="eyebrow">Instagram integrated</p>
-          <h2 id="instagram-title">Portfolio lives on @capture_crew_hh.</h2>
+          <h2 id="instagram-title">DM Capture Crew for every service.</h2>
           <p>
-            See the latest reels, event clips, portraits, and brand work on
-            Instagram. New customers can tap once and DM Capture Crew directly.
+            The site copies a ready services message first, then opens
+            @capture_crew_hh so customers can paste it straight into DM.
           </p>
+          <div class="service-dm-card" aria-label="Services included in the copied Instagram DM">
+            <span>Cinematic shoots</span>
+            <span>Instagram reels</span>
+            <span>Event coverage</span>
+            <span>Brand shoots</span>
+            <span>Portraits</span>
+            <span>Editing & color</span>
+            <span>Content strategy</span>
+            <span>iPhone 17 Pro Max shoots</span>
+          </div>
           <div class="instagram-actions">
             <a
               class="button button-primary"
               href="https://ig.me/m/capture_crew_hh"
               target="_blank"
               rel="noreferrer"
+              data-instagram-dm
             >
               <i data-lucide="send"></i>
-              <span>DM Capture Crew</span>
-            </a>
-            <a
-              class="button button-secondary"
-              href="https://www.instagram.com/capture_crew_hh/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i data-lucide="instagram"></i>
-              <span>View profile</span>
+              <span>Copy services & DM</span>
             </a>
           </div>
-        </div>
-
-        <div class="phone-preview" aria-label="Instagram content preview">
-          <div class="phone-top">
-            <span></span>
-            <strong>@capture_crew_hh</strong>
-            <i data-lucide="instagram"></i>
-          </div>
-          <div class="phone-feed">
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=700&q=82"
-                width="700"
-                height="700"
-                alt="Crowd at a live event under stage lights"
-                loading="lazy"
-              />
-              <span>Event reel</span>
-            </article>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=82"
-                width="700"
-                height="700"
-                alt="Lifestyle scene at sunset for a brand shoot"
-                loading="lazy"
-              />
-              <span>Brand shoot</span>
-            </article>
-            <article>
-              <img
-                src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=700&q=82"
-                width="700"
-                height="700"
-                alt="Outdoor cinematic location with dramatic landscape"
-                loading="lazy"
-              />
-              <span>Creative edit</span>
-            </article>
-          </div>
+          <p class="instagram-dm-status" aria-live="polite" data-instagram-status></p>
         </div>
       </section>
 
@@ -533,6 +506,6 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script type="module" src="./script.js?v=instagram-dm"></script>
+    <script type="module" src="./script.js?v=crew-founder-cards"></script>
   </body>
 </html>
