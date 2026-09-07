@@ -349,7 +349,7 @@ button {
 
 .hero-media {
   z-index: 0;
-  background-image: url("./assets/hero/black-red-cinematic.jpg?v=crew-founder-cards");
+  background-image: url("./assets/hero/black-red-cinematic.jpg?v=crew-nayeem");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -360,7 +360,7 @@ button {
 
 @media (min-width: 1280px) {
   .hero-media {
-    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=crew-founder-cards");
+    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=crew-nayeem");
   }
 }
 
@@ -1535,7 +1535,7 @@ button {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-    url("./assets/hero/black-red-cinematic.jpg?v=crew-founder-cards") center / cover;
+    url("./assets/hero/black-red-cinematic.jpg?v=crew-nayeem") center / cover;
   filter: saturate(1.08) contrast(1.08);
   opacity: 0.16;
   pointer-events: none;
@@ -1545,7 +1545,7 @@ button {
   .section::before {
     background:
       linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-      url("./assets/hero/black-red-cinematic-4k.jpg?v=crew-founder-cards") center / cover;
+      url("./assets/hero/black-red-cinematic-4k.jpg?v=crew-nayeem") center / cover;
   }
 }
 
@@ -1943,16 +1943,16 @@ button {
     0 16px 26px rgba(0, 0, 0, 0.78);
 }
 
-.crew-member-deva img {
-  object-position: center 18%;
-}
-
 .crew-member-sonu img {
   object-position: center 18%;
 }
 
 .crew-member-yashu img {
   object-position: 54% 42%;
+}
+
+.crew-member-nayeem img {
+  object-position: center center;
 }
 
 .crew-section {
