@@ -350,7 +350,7 @@ button {
 
 .hero-media {
   z-index: 0;
-  background-image: url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+  background-image: url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   background-size: cover;
   background-position: center;
   opacity: 0.48;
@@ -361,7 +361,7 @@ button {
 
 @media (min-width: 1280px) {
   .hero-media {
-    background-image: url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+    background-image: url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   }
 }
 
@@ -940,7 +940,7 @@ button {
 .hero-media {
   background-image:
     linear-gradient(90deg, rgba(3, 0, 0, 0.9), rgba(3, 0, 0, 0.46) 46%, rgba(3, 0, 0, 0.84)),
-    url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+    url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   background-position: center;
   opacity: 0.42;
   filter: saturate(0.82) contrast(1.08) brightness(0.82);
@@ -950,7 +950,7 @@ button {
   .hero-media {
     background-image:
       linear-gradient(90deg, rgba(3, 0, 0, 0.9), rgba(3, 0, 0, 0.46) 46%, rgba(3, 0, 0, 0.84)),
-      url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+      url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   }
 }
 
@@ -4265,7 +4265,7 @@ textarea::placeholder {
   background-image:
     linear-gradient(90deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.74) 31%, rgba(0, 0, 0, 0.18) 58%, rgba(0, 0, 0, 0.36) 100%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.74) 0%, transparent 38%, rgba(0, 0, 0, 0.18) 100%),
-    url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+    url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   background-position: center right;
   background-size: cover;
   opacity: 1;
@@ -4278,7 +4278,7 @@ textarea::placeholder {
     background-image:
       linear-gradient(90deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.72) 31%, rgba(0, 0, 0, 0.14) 58%, rgba(0, 0, 0, 0.32) 100%),
       linear-gradient(0deg, rgba(0, 0, 0, 0.74) 0%, transparent 38%, rgba(0, 0, 0, 0.18) 100%),
-      url("./assets/hero/capturecrew-iphone-cinematic-hero.png?v=phone-story-hero");
+      url("./assets/hero/capturecrew-phone-shooter-hero.png?v=person-phone-hero");
   }
 }
 
