@@ -3,6 +3,8 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
 const instagramDmLinks = document.querySelectorAll("[data-instagram-dm]");
 const instagramStatus = document.querySelector("[data-instagram-status]");
+const workVideos = Array.from(document.querySelectorAll(".work-video-frame video"));
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const instagramServicesMessage = [
   "Hi Capture Crew, I want to know about your services.",
   "I am interested in:",
@@ -98,6 +100,77 @@ async function openInstagramDmWithMessage(event) {
   }
 }
 
+function pauseVideo(video) {
+  video.pause();
+  video.closest(".work-video-card")?.classList.remove("is-playing");
+}
+
+function setupVideoAutoplay() {
+  if (!workVideos.length) return;
+
+  workVideos.forEach((video) => {
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("playsinline", "");
+  });
+
+  if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) return;
+
+  const visibility = new Map(workVideos.map((video) => [video, 0]));
+
+  function syncPlayingVideo() {
+    if (document.hidden) {
+      workVideos.forEach(pauseVideo);
+      return;
+    }
+
+    let bestVideo = null;
+    let bestRatio = 0;
+
+    visibility.forEach((ratio, video) => {
+      if (ratio > bestRatio) {
+        bestRatio = ratio;
+        bestVideo = video;
+      }
+    });
+
+    workVideos.forEach((video) => {
+      if (video === bestVideo && bestRatio >= 0.48) {
+        video.closest(".work-video-card")?.classList.add("is-playing");
+        const playRequest = video.play();
+        if (playRequest) {
+          playRequest.catch(() => pauseVideo(video));
+        }
+      } else {
+        pauseVideo(video);
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        visibility.set(entry.target, entry.intersectionRatio);
+      });
+      syncPlayingVideo();
+    },
+    {
+      root: null,
+      rootMargin: "-12% 0px -12% 0px",
+      threshold: [0, 0.25, 0.48, 0.7, 0.9],
+    },
+  );
+
+  workVideos.forEach((video) => observer.observe(video));
+  document.addEventListener("visibilitychange", syncPlayingVideo);
+  reducedMotionQuery.addEventListener?.("change", () => {
+    if (reducedMotionQuery.matches) workVideos.forEach(pauseVideo);
+  });
+}
+
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 window.addEventListener("resize", () => {
   if (window.innerWidth > 980) closeNavigation();
@@ -129,3 +202,4 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 updateHeaderState();
+setupVideoAutoplay();

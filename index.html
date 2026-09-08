@@ -25,7 +25,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800;1,900&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=elegant-vertical-feed" />
+    <link rel="stylesheet" href="./styles.css?v=iphone-horizontal-reels" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -109,24 +109,53 @@
             </div>
           </div>
 
-          <figure class="hero-portrait-card">
-            <img
-              src="./assets/founders/capture-hemu.jpg"
-              width="900"
-              height="1100"
-              alt="Capture Crew portrait sample in an elegant editorial frame"
-            />
+          <figure class="hero-phone-showcase" aria-label="Capture Crew iPhone reel preview">
+            <div class="phone-orbit" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="iphone-device" role="img" aria-label="iPhone showing Capture Crew cinematic reel preview">
+              <span class="iphone-side-button iphone-side-button-left"></span>
+              <span class="iphone-side-button iphone-side-button-right"></span>
+              <div class="iphone-screen">
+                <span class="iphone-dynamic-island" aria-hidden="true"></span>
+                <div class="iphone-screen-glow" aria-hidden="true"></div>
+                <img
+                  class="iphone-screen-logo"
+                  src="./assets/logo/capture-crew-wordmark.png"
+                  width="2476"
+                  height="477"
+                  alt=""
+                />
+                <div class="iphone-viewfinder" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="iphone-capture-ui" aria-hidden="true">
+                  <span class="record-dot"></span>
+                  <span>4K Reel</span>
+                </div>
+                <div class="iphone-lens-pack" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <span class="iphone-home-indicator" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption>Shot on iPhone. Edited for Instagram.</figcaption>
           </figure>
 
-          <a class="hero-sample-card" href="#work-videos" aria-label="View Capture Crew reels">
-            <img
-              src="./assets/projects/iphone-reels-cinematic.jpg"
-              width="900"
-              height="1100"
-              alt="Cinematic phone-shot reel preview"
-            />
-            <span>Featured reel work</span>
-            <strong>See the portfolio</strong>
+          <a class="hero-sample-card hero-tech-card" href="#work-videos" aria-label="View Capture Crew reels">
+            <span>iPhone reel system</span>
+            <strong>Events, portraits, reels</strong>
+            <div class="mini-phone" aria-hidden="true">
+              <span class="mini-phone-screen"></span>
+              <span class="mini-phone-lens"></span>
+            </div>
           </a>
 
           <dl class="hero-stats" aria-label="Capture Crew highlights">
@@ -177,7 +206,7 @@
             <div class="video-row" aria-label="Actress videos">
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Actress reel 01">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Actress reel 01">
                     <source src="./assets/videos/actress/actress-01.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -186,7 +215,7 @@
 
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Actress reel 02">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Actress reel 02">
                     <source src="./assets/videos/actress/actress-02.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -195,7 +224,7 @@
 
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Actress reel 03">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Actress reel 03">
                     <source src="./assets/videos/actress/actress-03.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -204,7 +233,7 @@
 
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Actress reel 04">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Actress reel 04">
                     <source src="./assets/videos/actress/actress-04.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -222,7 +251,7 @@
             <div class="video-row influencer-video-row" aria-label="Influencer videos">
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Influencer reel 01">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Influencer reel 01">
                     <source src="./assets/videos/influencers/influencer-01.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -231,7 +260,7 @@
 
               <article class="work-video-card">
                 <div class="work-video-frame">
-                  <video controls playsinline preload="metadata" aria-label="Influencer reel 02">
+                  <video controls muted loop playsinline preload="metadata" aria-label="Influencer reel 02">
                     <source src="./assets/videos/influencers/influencer-02.mp4" type="video/mp4" />
                   </video>
                 </div>
@@ -564,6 +593,6 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script type="module" src="./script.js?v=elegant-vertical-feed"></script>
+    <script type="module" src="./script.js?v=iphone-horizontal-reels"></script>
   </body>
 </html>
