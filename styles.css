@@ -349,7 +349,7 @@ button {
 
 .hero-media {
   z-index: 0;
-  background-image: url("./assets/hero/black-red-cinematic.jpg?v=work-videos");
+  background-image: url("./assets/hero/black-red-cinematic.jpg?v=influencer-videos");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -360,7 +360,7 @@ button {
 
 @media (min-width: 1280px) {
   .hero-media {
-    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=work-videos");
+    background-image: url("./assets/hero/black-red-cinematic-4k.jpg?v=influencer-videos");
   }
 }
 
@@ -1535,7 +1535,7 @@ button {
   z-index: 0;
   background:
     linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-    url("./assets/hero/black-red-cinematic.jpg?v=work-videos") center / cover;
+    url("./assets/hero/black-red-cinematic.jpg?v=influencer-videos") center / cover;
   filter: saturate(1.08) contrast(1.08);
   opacity: 0.16;
   pointer-events: none;
@@ -1545,7 +1545,7 @@ button {
   .section::before {
     background:
       linear-gradient(180deg, rgba(3, 0, 0, 0.12), rgba(3, 0, 0, 0.8)),
-      url("./assets/hero/black-red-cinematic-4k.jpg?v=work-videos") center / cover;
+      url("./assets/hero/black-red-cinematic-4k.jpg?v=influencer-videos") center / cover;
   }
 }
 
@@ -1799,6 +1799,11 @@ button {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   align-items: stretch;
+}
+
+.influencer-video-row {
+  grid-template-columns: repeat(2, minmax(0, 225px));
+  justify-content: start;
 }
 
 .work-video-card {
@@ -2960,6 +2965,10 @@ textarea::placeholder {
 
   .work-side-heading h3 {
     font-size: 3rem;
+  }
+
+  .influencer-video-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-grid {

@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800;1,900&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=work-videos" />
+    <link rel="stylesheet" href="./styles.css?v=influencer-videos" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -299,18 +299,29 @@
             </div>
           </div>
 
-          <div class="work-row work-row-empty">
+          <div class="work-row">
             <div class="work-side-heading">
               <span>02</span>
               <h3>Influencers</h3>
             </div>
 
-            <div class="video-row video-row-empty" aria-label="Influencer videos">
-              <article class="work-video-card work-video-card-empty">
+            <div class="video-row influencer-video-row" aria-label="Influencer videos">
+              <article class="work-video-card">
                 <div class="work-video-frame">
-                  <span>Coming soon</span>
+                  <video controls playsinline preload="metadata" aria-label="Influencer reel 01">
+                    <source src="./assets/videos/influencers/influencer-01.mp4" type="video/mp4" />
+                  </video>
                 </div>
-                <p>Influencer reels</p>
+                <p>Influencer reel 01</p>
+              </article>
+
+              <article class="work-video-card">
+                <div class="work-video-frame">
+                  <video controls playsinline preload="metadata" aria-label="Influencer reel 02">
+                    <source src="./assets/videos/influencers/influencer-02.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <p>Influencer reel 02</p>
               </article>
             </div>
           </div>
@@ -582,6 +593,6 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script type="module" src="./script.js?v=work-videos"></script>
+    <script type="module" src="./script.js?v=influencer-videos"></script>
   </body>
 </html>
