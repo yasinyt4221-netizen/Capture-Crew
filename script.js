@@ -3,6 +3,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const siteNav = document.querySelector("[data-site-nav]");
 const instagramDmLinks = document.querySelectorAll("[data-instagram-dm]");
 const instagramStatus = document.querySelector("[data-instagram-status]");
+const heroPreviewVideos = Array.from(document.querySelectorAll(".hero-device-screen video"));
 const workVideos = Array.from(document.querySelectorAll(".work-video-frame video"));
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const instagramServicesMessage = [
@@ -105,17 +106,50 @@ function pauseVideo(video) {
   video.closest(".work-video-card")?.classList.remove("is-playing");
 }
 
+function prepareSilentLoop(video) {
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("loop", "");
+  video.setAttribute("playsinline", "");
+}
+
+function playVideo(video) {
+  const playRequest = video.play();
+  if (playRequest) {
+    playRequest.catch(() => pauseVideo(video));
+  }
+}
+
+function setupHeroPreviewVideos() {
+  if (!heroPreviewVideos.length) return;
+
+  heroPreviewVideos.forEach((video) => {
+    prepareSilentLoop(video);
+    video.autoplay = true;
+    video.setAttribute("autoplay", "");
+
+    if (!reducedMotionQuery.matches) {
+      playVideo(video);
+    }
+  });
+
+  reducedMotionQuery.addEventListener?.("change", () => {
+    heroPreviewVideos.forEach((video) => {
+      if (reducedMotionQuery.matches) {
+        video.pause();
+      } else {
+        playVideo(video);
+      }
+    });
+  });
+}
+
 function setupVideoAutoplay() {
   if (!workVideos.length) return;
 
-  workVideos.forEach((video) => {
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.setAttribute("muted", "");
-    video.setAttribute("loop", "");
-    video.setAttribute("playsinline", "");
-  });
+  workVideos.forEach(prepareSilentLoop);
 
   if (reducedMotionQuery.matches || !("IntersectionObserver" in window)) return;
 
@@ -138,12 +172,9 @@ function setupVideoAutoplay() {
     });
 
     workVideos.forEach((video) => {
-      if (video === bestVideo && bestRatio >= 0.48) {
+      if (video === bestVideo && bestRatio >= 0.28) {
         video.closest(".work-video-card")?.classList.add("is-playing");
-        const playRequest = video.play();
-        if (playRequest) {
-          playRequest.catch(() => pauseVideo(video));
-        }
+        playVideo(video);
       } else {
         pauseVideo(video);
       }
@@ -159,8 +190,8 @@ function setupVideoAutoplay() {
     },
     {
       root: null,
-      rootMargin: "-12% 0px -12% 0px",
-      threshold: [0, 0.25, 0.48, 0.7, 0.9],
+      rootMargin: "-6% 0px -6% 0px",
+      threshold: [0, 0.2, 0.28, 0.48, 0.7, 0.9],
     },
   );
 
@@ -202,4 +233,5 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 updateHeaderState();
+setupHeroPreviewVideos();
 setupVideoAutoplay();
