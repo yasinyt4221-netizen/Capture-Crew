@@ -6,6 +6,7 @@ const instagramStatus = document.querySelector("[data-instagram-status]");
 const heroPreviewVideos = Array.from(document.querySelectorAll(".hero-device-screen video"));
 const workVideos = Array.from(document.querySelectorAll(".work-video-frame video"));
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const mobileHeroQuery = window.matchMedia("(max-width: 680px)");
 const instagramServicesMessage = [
   "Hi Capture Crew, I want to know about your services.",
   "I am interested in:",
@@ -122,6 +123,21 @@ function playVideo(video) {
   }
 }
 
+function isVideoDisplayed(video) {
+  return getComputedStyle(video).display !== "none";
+}
+
+function syncHeroPreviewPlayback() {
+  heroPreviewVideos.forEach((video) => {
+    if (reducedMotionQuery.matches || !isVideoDisplayed(video)) {
+      video.pause();
+      return;
+    }
+
+    playVideo(video);
+  });
+}
+
 function setupHeroPreviewVideos() {
   if (!heroPreviewVideos.length) return;
 
@@ -129,21 +145,11 @@ function setupHeroPreviewVideos() {
     prepareSilentLoop(video);
     video.autoplay = true;
     video.setAttribute("autoplay", "");
-
-    if (!reducedMotionQuery.matches) {
-      playVideo(video);
-    }
   });
 
-  reducedMotionQuery.addEventListener?.("change", () => {
-    heroPreviewVideos.forEach((video) => {
-      if (reducedMotionQuery.matches) {
-        video.pause();
-      } else {
-        playVideo(video);
-      }
-    });
-  });
+  syncHeroPreviewPlayback();
+  reducedMotionQuery.addEventListener?.("change", syncHeroPreviewPlayback);
+  mobileHeroQuery.addEventListener?.("change", syncHeroPreviewPlayback);
 }
 
 function setupVideoAutoplay() {

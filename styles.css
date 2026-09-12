@@ -5114,6 +5114,10 @@ body {
   filter: saturate(0.9) contrast(1.06) brightness(0.78);
 }
 
+.hero-preview-video-mobile {
+  display: none;
+}
+
 .hero-device-screen::after {
   content: "";
   position: absolute;
@@ -5683,6 +5687,14 @@ body {
 
   .hero-device-screen {
     border-radius: 27px;
+  }
+
+  .hero-preview-video-desktop {
+    display: none;
+  }
+
+  .hero-preview-video-mobile {
+    display: block;
   }
 
   .hero-device-showcase figcaption {

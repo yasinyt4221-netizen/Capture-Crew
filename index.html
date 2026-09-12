@@ -25,7 +25,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800;1,900&family=Great+Vibes&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=creator-lab-video-layout" />
+    <link rel="stylesheet" href="./styles.css?v=creator-lab-mobile-video" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -148,8 +148,27 @@
             </div>
             <div class="hero-device">
               <div class="hero-device-screen">
-                <video autoplay muted loop playsinline preload="metadata" aria-label="Capture Crew reel preview">
+                <video
+                  class="hero-preview-video hero-preview-video-desktop"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Capture Crew reel preview"
+                >
                   <source src="./assets/videos/actress/actress-01.mp4" type="video/mp4" />
+                </video>
+                <video
+                  class="hero-preview-video hero-preview-video-mobile"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Capture Crew mobile reel preview"
+                >
+                  <source src="./assets/videos/actress/actress-03.mp4" type="video/mp4" />
                 </video>
                 <div class="hero-device-ui" aria-hidden="true">
                   <span>9:41</span>
@@ -658,6 +677,6 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script type="module" src="./script.js?v=creator-lab-video-layout"></script>
+    <script type="module" src="./script.js?v=creator-lab-mobile-video"></script>
   </body>
 </html>
